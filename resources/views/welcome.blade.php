@@ -1,14 +1,7 @@
-@extends('shopify-app::layouts.default')
+@extends('layout')
 
 @section('content')
-    <!-- You are: (shop domain name) -->
-    <p>You are: {{ $shopDomain ?? Auth::user()->name }}</p>
-@endsection
-
-@section('scripts')
-    @parent
-
-    <script>
-        actions.TitleBar.create(app, { title: 'Welcome' });
-    </script>
+<div class="container" style="margin: 30px;">
+    <x-dashui-button type="button" as="link" href="{{ URL::tokenRoute('products')}}">All Products</x-dashui-button>
+</div>
 @endsection

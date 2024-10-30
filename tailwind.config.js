@@ -1,20 +1,35 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+const colors = require('tailwindcss/colors')
 
-/** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
         './resources/**/*.blade.php',
-        './resources/**/*.js',
-        './resources/**/*.vue',
+        './vendor/combindma/dash-ui/resources/views/**/*.blade.php',
     ],
+    darkMode: 'class',
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
+        fontFamily: {
+            sans: ['Inter', 'system-ui'],
         },
+        fontSize: {
+            xs: '0.75rem',
+            sm: '0.8125rem',
+            base: '0.875rem',
+            lg: '1.25rem',
+            xl: '1.5rem',
+            '2xl': '1.875rem',
+            '3xl': '2.25rem',
+            '4xl': '3.052rem',
+        },
+        extend: {
+            colors: {
+                primary: colors.stone,
+            }
+        }
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+        require("@tailwindcss/typography")
+    ],
 };
